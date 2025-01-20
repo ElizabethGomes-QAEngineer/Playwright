@@ -15,21 +15,13 @@ jobs:
         
       - name: Setup Node.js
         uses: actions/setup-node@v4   
-        with:
-              v20.18.0     
+         
 
       - name: Install Dependencies
         run: npm install
 
-      - name: Install Playwright dependencies
-        run: |
-          sudo apt-get update -y 
-          sudo apt-get install -y libgbm-dev 
-          npx playwright install  
-
       - name: Run Playwright tests
-        run: |
-          npx playwright test
+        uses: microsoft/playwright-github-action@v1
 
       - name: Upload Playwright Results
         uses: actions/upload-artifact@v4

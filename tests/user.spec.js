@@ -1,6 +1,6 @@
-const { test } = require('@playwright/test') 
 const { LoginPage } = require('../pages/loginPage')
 const { MyInfoPage } = require('../pages/myInfoPage')
+const { test } = require('@playwright/test') 
 
 
 test.describe('my info section' , () => {

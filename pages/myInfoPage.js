@@ -5,8 +5,6 @@ class MyInfoPage {
      constructor(page) {
 
             this.page = page
-
-          
             this.fullName = page.locator('.oxd-input--active').nth(1)
             this.middleName = page.locator('.oxd-input--active').nth(2)
             this.nameUser = page.locator('.oxd-input--active').nth(3)

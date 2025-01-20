@@ -1,0 +1,41 @@
+name: CI
+
+on: 
+  push:
+    branches:
+      - ci-playwright  
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4        
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Install Playwright dependencies
+        run: |
+          sudo apt-get update -y 
+          sudo apt-get install -y libgbm-dev 
+          npx playwright install  
+
+      - name: Run Playwright tests
+        run: |
+          npx playwright test
+
+      - name: Upload Playwright Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Playwright Results
+          path: |
+            playwright/screenshots
+            playwright/videos
+            playwright/test-results
+          if-no-file-found: ignore

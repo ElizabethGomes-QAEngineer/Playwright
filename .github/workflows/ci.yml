@@ -31,9 +31,9 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Playwright Results
-          path: |
-            playwright/screenshots
-            playwright/videos
-            playwright/test-results
+           name: Playwright Results
+           path: |
+                playwright/screenshots
+                playwright/videos
+                playwright/test-results
           if-no-file-found: ignore

@@ -47,7 +47,7 @@ npm install
 npx init playwright
 ```
 
-**modo Headless**
+**ou utilize**
 
 ```bash
 npx create-playwright

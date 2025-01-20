@@ -41,13 +41,13 @@ cd workspace-playwright
 npm install 
 ```
 
-**4.** **Installe Playwright  🛠️**
+**4.** **Instale Playwright  🛠️**
 
 ```bash
 npx init playwright
 ```
 
-**se preferir**
+**modo Headless**
 
 ```bash
 npx create-playwright

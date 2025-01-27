@@ -1,21 +1,37 @@
-name: CI
+name: CI Playwright 
 
-on: [push]
+on:
+  push:
+    branches:
+      - ci-playwright
+  pull_request:
+    branches:
+      - ci-playwright
+
 jobs:
   test:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        browser: [chromium, firefox, webkit]
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        
-      - name: Setup Node.js
-        uses: actions/setup-node@v4         
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        run: npm install
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
 
-      - name: Run Playwright tests
-        run: npx playwright test
+    - name: Install dependencies
+      run: npm install
+
+    - name: Install Playwright browsers
+      run: npx playwright install --with-deps
+
+    - name: Run Playwright tests
+      run: npx playwright test --project=${{ matrix.browser }}
 
      

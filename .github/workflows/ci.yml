@@ -15,9 +15,9 @@ jobs:
             - name: Install Dependencies
               run: npm install
              
-            - name: Cypress Tests
-              uses: cypress-io/github-action@v6
-                  
+            - name: Run Playwright Tests
+              uses: microsoft/playwright-github-action@v1
+             
             - uses: actions/upload-artifact@v4
               if: always()
               with: 

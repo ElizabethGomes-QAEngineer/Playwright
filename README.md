@@ -54,7 +54,7 @@ npx create-playwright
 ```
 
 
-**4.** **Execute o Cypress para rodar os testes 🚀**
+**4.** **Execute o Playwright para rodar os testes 🚀**
 
 abrir o Playwright com interface gráfica 
 
